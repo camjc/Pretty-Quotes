@@ -1,0 +1,48 @@
+// For Display Purposes only
+body{
+  padding: 5em;
+}
+
+
+
+$text-color: #777; // Anything you want
+$quote-color: darken($text-color, 10%);
+
+@mixin quoteshared{
+  position: absolute;
+  color: $quote-color;
+  font-size: 4em;
+  line-height: 0.1em;
+}
+
+blockquote {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  color: $text-color;
+  quotes: "\201C""\201D""\2018""\2019";
+  font-size: 1.5em;
+  line-height: 1.25em;
+  p {
+    display: inline;
+    &::before {
+      @include quoteshared;
+      top: .25em;
+      left: -0.5em;
+      content: open-quote;
+    }
+
+    &::after {
+      @include quoteshared;
+      right: -0.5em;
+      bottom: 0.25em;
+      content: close-quote;
+    }
+  }
+  footer{
+    text-align: right;
+    cite::before{
+      content: "–";
+    }
+  }
+}

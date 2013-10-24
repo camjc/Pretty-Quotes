@@ -1,0 +1,41 @@
+@charset "UTF-8";
+body {
+  padding: 5em;
+}
+
+blockquote {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  color: #777777;
+  quotes: "\201C" "\201D" "\2018" "\2019";
+  font-size: 1.5em;
+  line-height: 1.25em;
+}
+blockquote p {
+  display: inline;
+}
+blockquote p::before {
+  position: absolute;
+  color: #5e5e5e;
+  font-size: 4em;
+  line-height: 0.1em;
+  top: .25em;
+  left: -0.5em;
+  content: open-quote;
+}
+blockquote p::after {
+  position: absolute;
+  color: #5e5e5e;
+  font-size: 4em;
+  line-height: 0.1em;
+  right: -0.5em;
+  bottom: 0.25em;
+  content: close-quote;
+}
+blockquote footer {
+  text-align: right;
+}
+blockquote footer cite::before {
+  content: "–";
+}
